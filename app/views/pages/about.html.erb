@@ -2,3 +2,24 @@
 <h2>Bienvenue sur le site d'entraide entre adhérents de la Maison Basque de Paris</h2>
 <p>Find me in app/views/pages/about.html.erb</p>
 <p>Ce site à pour but de mettre en relation les adhérents de la maison basque de paris pour partager leurs petites annonces : meubles, offre d'emplois, convoiturage pour descendre au pays. </p>
+
+
+<h2>Retrouvez les différentes sections : </h2>
+
+<form action="/about" method="get">
+  <input type="text" name="categorie" value="<%= params[:categorie]%>" placeholder="What are you looking for?">
+  <input type="submit">
+</form>
+
+<h3>Résultats</h3>
+
+<ol>
+  <% @categories.each do |categorie| %>
+    <li> <%= categorie %> </li>
+  <% end %>
+</ol>
+
+<h3>Et d'autres à venir...</h3>
+
+<p><%= link_to "Accueil", root_path  %></p>
+<p><%= link_to "Contact",  contact_path %></p>
